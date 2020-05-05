@@ -11,10 +11,6 @@ namespace Aula09.Servico
     {
         private readonly ClienteRepositorio _clienteRepositorio;
 
-        
-        
-        
-        
         public ClienteServico()
         {
             _clienteRepositorio = new ClienteRepositorio();

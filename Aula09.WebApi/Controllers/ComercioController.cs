@@ -8,17 +8,17 @@ namespace Aula09.WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ClienteController : ControllerBase
+    public class ComercioController
     {
-        private readonly ClienteServico clienteServico;
+        private readonly ComercioServico comercioServico;
 
-        public ClienteController()
+        public ComercioController()
         {
-            clienteServico = new ClienteServico();
+            comercioServico = new ComercioServico();
         }
 
-        [HttpGet("Usuario")]
-        public IEnumerable<Cliente> Ativos() => clienteServico.ListarCliente();
+        [HttpGet("Comercios")]
+        public IEnumerable<Comercio> Ativos() => comercioServico.ListarComercio();
 
         //[HttpGet("sem-estoque")]
         //public IEnumerable<Cliente> ListarTodosComEstoqueZerado()
@@ -27,15 +27,15 @@ namespace Aula09.WebApi.Controllers
         //}
 
         [HttpPost("Salvar")]
-        public NotificationResult Salvar(Cliente entidade)
+        public NotificationResult Salvar(Comercio entidade)
         {
-            return clienteServico.Salvar(entidade);
+            return comercioServico.Salvar(entidade);
         }
 
         [HttpDelete]
-        public NotificationResult Excluir(Cliente entidade)
+        public NotificationResult Excluir(Comercio entidade)
         {
-            return clienteServico.Excluir(entidade);
+            return comercioServico.Excluir(entidade);
         }
     }
 }

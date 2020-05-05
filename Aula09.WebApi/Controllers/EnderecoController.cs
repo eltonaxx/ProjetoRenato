@@ -8,17 +8,17 @@ namespace Aula09.WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ClienteController : ControllerBase
+    public class EnderecoController
     {
-        private readonly ClienteServico clienteServico;
+        private readonly EnderecoServico enderecoServico;
 
-        public ClienteController()
+        public EnderecoController()
         {
-            clienteServico = new ClienteServico();
+            enderecoServico = new EnderecoServico();
         }
 
-        [HttpGet("Usuario")]
-        public IEnumerable<Cliente> Ativos() => clienteServico.ListarCliente();
+        [HttpGet("Endereco")]
+        public IEnumerable<Endereco> Ativos() => enderecoServico.ListarEndereco();
 
         //[HttpGet("sem-estoque")]
         //public IEnumerable<Cliente> ListarTodosComEstoqueZerado()
@@ -27,15 +27,15 @@ namespace Aula09.WebApi.Controllers
         //}
 
         [HttpPost("Salvar")]
-        public NotificationResult Salvar(Cliente entidade)
+        public NotificationResult Salvar(Endereco entidade)
         {
-            return clienteServico.Salvar(entidade);
+            return enderecoServico.Salvar(entidade);
         }
 
         [HttpDelete]
-        public NotificationResult Excluir(Cliente entidade)
+        public NotificationResult Excluir(Endereco entidade)
         {
-            return clienteServico.Excluir(entidade);
+            return enderecoServico.Excluir(entidade);
         }
     }
 }
